@@ -1,0 +1,15 @@
+
+.error {
+	font-family:garamond;
+	color:#cc0000;
+	font-family:arial;
+	font-weight:bold;	
+}
+
+label.valid {
+width: 24px;
+height: 24px;
+background: url(../img/valid.png) center center no-repeat;
+display: inline-block;
+text-indent: -9999px;
+}

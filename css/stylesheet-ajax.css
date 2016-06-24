@@ -1,0 +1,17 @@
+body {
+    margin:0 auto;
+    padding:0;
+	width:200px;
+    text-align:center;
+}
+
+#panel {
+	background: #ffffbd;
+    background-size:90% 90%;
+    height:300px;
+    font-family:garamond,times-new-roman,serif;
+}
+
+#panel p{
+    text-align:center;
+}

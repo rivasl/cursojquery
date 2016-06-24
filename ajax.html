@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax</title>
+<link type="text/css" href="css/stylesheet-ajax.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.11.0/jquery-ui.min.css"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#hide").click(function(){
+      $("#element").hide();
+    });
+    $("#show").click(function(){
+      $("#element").show();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#enviar-btn").click(function() {
+          var name = $("input#name").val();
+          var message = $("textarea#message").val();
+          var dataString = 'name=' + name + '&message=' + message;
+
+          $.ajax({
+              type: "POST",
+              url: "addcomment.php",
+              data: dataString,
+              success: function() {
+                  $("#element").hide();
+                  $('#newmessage').append('Tu información ha sido recibida correctamente!<table><tr><td>Nombre *:</td><td>'+name+'</td></tr><tr><td>Mensaje*:</td><td>'+message+'</td></tr></table>');
+              }
+          });
+          return false;
+      });
+  });
+</script>
+</head>
+
+<body>
+  <div class="header"><h2>Cabecera de simulación para ver el efecto jquery-ajax</h2></div>
+  <div id="newmessage"></div>
+  <a href="#" id="show">Mostrar</a>
+  <div id="element" style="display: none;">
+     <div id="close"><a href="#" id="hide">cerrar</a></div>
+     <form method="post" action="">
+          Nombre:<br/>
+          <input type="text" id="name" name="name" size="40" /><br/><br/>
+          Mensaje:<br/>
+          <textarea name="message" id="message" rows="6" cols="40"></textarea>
+          <br/><br/>
+          <div style="margin-left: 376px;"><input name="submit" type="submit" value="enviar" id="enviar-btn" /></div>
+      </form>
+  </div>
+</body>
+</html>

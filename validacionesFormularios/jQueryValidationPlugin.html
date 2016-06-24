@@ -1,0 +1,61 @@
+<!-- http://jqueryvalidation.org/ -->
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Texto de ayuda en formularios y validación con jQuery Validation plugin</title>
+    
+    <link href='../css/JqueryValidationPluginstylesheet.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <form action="" method="post" class="datos">
+        <fieldset>
+            <legend>Texto de ayuda en formularios y validación con jQuery Validation plugin (jquery.validate.min.js)</legend>
+            
+            <div id="validate"><ul></ul></div>
+
+            <div data-helper="Introduce tu nombre">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="required" title="Introduce tu nombre">
+            </div>
+            <div data-helper="Introduce tu correo electrónico... No spam, I swear!">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" name="email" id="email" class="required email" title="Introduce tu correo electrónico">
+            </div>
+            <div data-helper="Indica tu edad">
+                <label for="edad">Edad</label>
+                <input type="number" name="edad" id="edad" class="required number" title="Indica tu edad">
+            </div>
+            <div class="submit">
+                <input type="submit" value="Simular envío">
+            </div>
+        </fieldset>
+    </form>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="../js/messages_es.js"></script>
+    <script>
+/*    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_es.js "*/
+    $(document).ready(function()
+    {
+        $("form div:not(.submit)").on("tap mouseenter",function() { 
+        													var mensaje=$(this).data("helper");
+        													if (mensaje) $(this).find("label").append("<em class='helper'>"+mensaje+"</em>").show(); 
+        												}
+        							);
+
+        $("form div").on("mouseleave",function() { $(this).find(".helper").remove(); });
+        
+        
+        var container = $('div#validate');
+        $("form.datos").validate({ 
+            errorContainer: container,
+            errorLabelContainer: $("ul", container),
+            wrapper: 'li'
+        });
+    });
+    </script>
+</body>
+</html>

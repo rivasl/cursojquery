@@ -1,0 +1,34 @@
+.panel {
+	background: #ffffbd;
+    background-size:90% 90%;
+    height:300px;
+	display:none;
+    font-family:garamond,times-new-roman,serif;
+}
+.panel p{
+    text-align:center;
+}
+.desliza {
+	margin:0;
+	padding:0;
+	border-top:solid 2px #cc0000;
+}
+.halame {
+	display:block;
+    position:relative;
+    right:-25px;
+    width:150px;
+    height:150px;
+	font-family:arial,sans-serif;
+    font-size:14px;
+	color:#ffffff;
+    background:#cc0000;
+	text-decoration:none;
+    -moz-border-bottom-left-radius:5px;
+    -moz-border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+}
+.halame p {
+    text-align:center;
+}
